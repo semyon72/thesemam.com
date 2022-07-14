@@ -1,0 +1,6 @@
+{% load i18n %}
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_bootstrap4 }}
+    <button class="btn btn-outline-success" type="submit">{% translate "Submit" %}</button>
+</form>

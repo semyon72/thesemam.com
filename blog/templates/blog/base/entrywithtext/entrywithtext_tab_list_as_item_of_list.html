@@ -1,0 +1,9 @@
+{% extends './entrywithtext_tab_list.html'%}
+{% load blog_extras %}
+
+{% block action_buttons %}
+    {% button 'detail' url=object.urls.detail %}
+    {% button 'edit' url=object.urls.update %}
+    {% button 'delete' url=object.urls.delete %}
+{% endblock %}
+

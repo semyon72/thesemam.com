@@ -1,0 +1,21 @@
+{% load blog_extras i18n %}
+<div class="author-item row p-1 border-bottom">
+    <div class="col-1 author-item-num">
+    {{ item_order_number|default:object.pk }}
+    </div>
+    <div class="col-3 author-item-name">
+    {{ object.name }}
+    </div>
+    <div class="col-4 author-item-info">
+        <div class="d-flex">
+            <div>{% translate "Total entries" %}: {{ object.entry_count|default:'0' }}</div>
+            <div class="ml-2">{% button 'filter' url=view.urls.by_author_list %}</div>
+        </div>
+        <div>{% translate "Blogs" %}: {{ object.blog_count|default:'0' }}</div>
+    </div>
+    <div class="col-4 author-item-action">
+    {% button 'detail' url=view.urls.detail %}
+    {% button 'edit' url=view.urls.update %}
+    {% button 'delete' url=view.urls.delete %}
+    </div>
+</div>

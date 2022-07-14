@@ -1,0 +1,6 @@
+{% load blog_extras %}
+    <div class="card-body">
+        {% button 'delete' %}
+        {% button 'edit' url=view.urls.update %}
+        {% button 'back_to_list' url=view.urls.list %}
+    </div>

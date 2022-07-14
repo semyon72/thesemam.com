@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+{% load blog_extras %}
+
+{% block body_content %}
+{{ entry_content }}
+<form action="" method="post">
+{% csrf_token %}
+{{ form.as_bootstrap4 }}
+{% button 'update' %}
+{% button 'back_to_list' url=view.urls.list %}
+</form>
+{% endblock body_content %}
+
+{% block javascript %}
+    {{ block.super }}
+    {% include '../body_text_ckeditor.html' %}
+{% endblock javascript %}

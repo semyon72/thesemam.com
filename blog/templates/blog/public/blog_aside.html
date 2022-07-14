@@ -1,0 +1,15 @@
+{% load i18n %}
+<section class="{{ blog_aside_class|default:'blog_aside' }}">
+    {% for content_item in content_list %}
+    {% if forloop.first %}
+    <div class="list-group mb-1">
+    {% endif %}
+    {{ content_item }}
+    {% if forloop.last %}
+    </div>
+    {% endif %}
+    {% empty %}
+        {% translate "Blog aside content is empty" %}
+    {% endfor %}
+    {% include '../base/paginator.html'  %}
+</section>

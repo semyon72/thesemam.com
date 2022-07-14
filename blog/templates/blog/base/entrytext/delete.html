@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+{% load blog_extras i18n %}
+
+{% block body_content %}
+    {% include '../entry/entry_detail_info.html' with object=object.entry %}
+    <div class="text-danger p-2 mb-2 border border-danger">
+        <h5>{% translate "Do you really want to delete Text item of entry?" %}</h5>
+    </div>
+    <form action="" method="post">
+    {% csrf_token %}
+    {% include './entrytext_detail_info.html' with action_buttons='blog/base/entrytext/entrytext_delete_info_buttons.html' %}
+    </form>
+{% endblock body_content %}

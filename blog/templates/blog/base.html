@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Title from blog/base.html{% endblock %}</title>
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'font/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'ckeditor/plugins/codesnippet/lib/highlight/styles/stackoverflow-light.css' %}">
+{% endblock stylesheet %}
+{% block javascript %}
+    <script type="application/javascript" src="{% static 'js/jquery.js' %}"></script>
+    <script type="application/javascript" src="{% static 'js/popper.min.js' %}"></script>
+    <script type="application/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+    <script type="application/javascript">
+        (function($){
+            $(document).ready(function(){
+                $('.no-collapsable').on('click', function (e) {
+                    e.stopPropagation();
+                });
+                // Load highlight features if CKEditor is not loaded
+                if (typeof CKEDITOR == 'undefined'){
+                    $.ajax({
+                        url: '{% static 'ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js' %}',
+                        dataType: "script",
+                        success: function( data, textStatus, jqxhr ) {
+                            $('div.entrytext-item-body-text pre code').each(function(){
+                                hljs.highlightBlock(this)
+                            })
+                        },
+                        cache: true,
+                    });
+                }
+            })
+        })(jQuery)
+    </script>
+{% endblock javascript %}
+</head>
+<body>
+<div class="container">
+<div class="row">
+    <div class="col-12">
+        <header>Some header</header>
+    </div>
+</div>
+<div class="row">
+<div class="col-2">
+<aside>
+{% include './site_nav.html' %}
+</aside>
+</div>
+<div class="col-10 body_content">
+{% block body_content %}
+    this body_content_block inside blog/base.html
+{% endblock body_content %}
+</div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <footer>
+        <p class="text-right">
+            <small>
+                <span class="copyright">Copyright ©2022-{% now 'Y' %}.</span>
+            </small>
+        </p>
+        </footer>
+    </div>
+</div>
+</div>
+</body>
+</html>

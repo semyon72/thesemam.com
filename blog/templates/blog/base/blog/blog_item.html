@@ -1,0 +1,21 @@
+{% load blog_extras %}
+<div class="blog-item row p-1 border-bottom">
+    <div class="col-1 blog-item-num">
+    {{ item_order_number|default:object.pk }}
+    </div>
+    <div class="col-3 blog-item-name">
+    {{ object.name }}
+    </div>
+    <div class="col-4 blog-item-info">
+        <div class="d-flex">
+            <div>Total entries: {{ object.entry_count|default:'0' }}</div>
+            <div class="ml-2">{% button 'filter' url=view.urls.by_blog_list %}</div>
+        </div>
+        <div>Authors: {{ object.author_count|default:'0' }}</div>
+    </div>
+    <div class="col-4 blog-item-action">
+    {% button 'detail' url=view.urls.detail %}
+    {% button 'edit' url=view.urls.update %}
+    {% button 'delete' url=view.urls.delete %}
+    </div>
+</div>

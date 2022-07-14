@@ -1,0 +1,8 @@
+{% load i18n %}<div class="entry-coauthor-item-list">{% spaceless %}
+    {% for content in content_list %}
+        {{ content }}
+    {% empty %}
+        <h4>{% translate "No data" %}</h4>
+    {% endfor %}
+    {% include '../paginator.html' %}
+{% endspaceless %}</div>

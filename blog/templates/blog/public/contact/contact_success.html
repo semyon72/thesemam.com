@@ -1,0 +1,12 @@
+{% load i18n %}
+{% if messages|length > 0 %}
+{% for message in messages %}
+    {{ message }}
+{% endfor %}
+{% else %}
+{% blocktranslate %}
+    <h3>Oooops - nothing happened before.</h3>
+    <p>Probably, you are used a direct link of this page or page was refreshed.</p>
+    <p>If you want to send email then use 'Contact' link of main menu.</p>
+{% endblocktranslate %}
+{% endif %}

@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+{% load blog_extras i18n %}
+
+{% block body_content %}
+<div class="text-danger p-2 mb-2 border border-danger">
+    <h5>{% translate "Do you really want to delete Entry's item and all depending parts include texts?" %}</h5>
+</div>
+<form action="" method="post">
+{% csrf_token %}
+{% include './entry_detail_info.html' with action_buttons='blog/base/entry/entry_delete_info_buttons.html' %}
+</form>
+{% endblock body_content %}

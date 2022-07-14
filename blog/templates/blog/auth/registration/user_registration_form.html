@@ -1,0 +1,12 @@
+{% extends '../base_site.html' %}
+{% load blog_extras %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body_content %}
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_bootstrap4 }}
+    {% button 'sign_up' %}
+    </form>
+{% endblock body_content %}

@@ -1,0 +1,18 @@
+{% load i18n %}
+<h3> {% translate "You have massage from" %} <span style="font-weight: bold;">{{ form.cleaned_data.author.name }}</span></h3>
+<table>
+    <tbody>
+        <tr>
+            <th>{{ form.name.label }}</th><td>{{ form.cleaned_data.name }}</td>
+        </tr>
+        <tr>
+            <th>{{ form.email.label }}</th><td>{{ form.cleaned_data.email }}</td>
+        </tr>
+        <tr>
+            <th>{{ form.headline.label }}</th><td>{{ form.cleaned_data.headline }}</td>
+        </tr>
+        <tr>
+            <th>{{ form.message.label }}</th><td>{{ form.cleaned_data.message }}</td>
+        </tr>
+    </tbody>
+</table>

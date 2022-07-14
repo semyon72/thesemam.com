@@ -1,0 +1,11 @@
+{% load blog_extras i18n %}
+<h4 class="entrytext-item-list-header text-center">{% translate "Texts of entries" %}</h4>
+<div class="create-button-block">{% button 'create' url=view.urls.create %}</div>
+<div class="entrytext-item-list border px-2">
+    {% for content in content_list %}
+        {{ content }}
+    {% empty %}
+        <h4>{% translate "No data" %}</h4>
+    {% endfor %}
+</div>
+{% include '../paginator.html' with base_url=view.paginator_base_url %}

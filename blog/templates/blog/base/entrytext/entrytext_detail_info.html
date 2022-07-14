@@ -1,0 +1,16 @@
+{% load blog_extras %}
+<div class="card">
+    <div class="card-body entrytext-item">
+        <div class="row">
+            <div class="col-12 col-lg-auto entrytext-item-num"><span class="text-muted">#</span>{% if item_order_number %}{{ item_order_number }}{% else %}{{ object.pk|default:'#' }}{% endif %}</div>
+            <div class="col-12 col-lg-auto entrytext-item-body-text">
+                {{ object.body_text_truncated|default:object.body_text|safe }}
+            </div>
+        </div>
+    </div>
+    {% if action_buttons %}
+    <div class="card-footer">
+        {% include action_buttons %}
+    </div>
+    {% endif %}
+</div>

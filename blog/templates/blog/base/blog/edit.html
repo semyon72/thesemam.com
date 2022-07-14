@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+{% load blog_extras %}
+
+{% block body_content %}
+<form action="" method="post">
+{% csrf_token %}
+{{ form.as_bootstrap4 }}
+{% button 'update' %}
+{% button 'back_to_list' url=view.urls.list %}
+{% button 'detail' url=view.urls.detail %}
+{% button 'delete' url=view.urls.delete %}
+</form>
+{% endblock body_content %}

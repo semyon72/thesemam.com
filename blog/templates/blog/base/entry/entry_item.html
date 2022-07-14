@@ -1,0 +1,8 @@
+{% load blog_extras %}
+<div class="entry-item w-100 border-bottom p-2 mb-2{% if object.inactive %} text-muted border border-warning bg-light{% endif %}">
+    {% include './entry_info_noheadline.html' %}
+    <div class="row">
+        <div class="col-12 entry-item-headline"><span class="font-weight-bold">{{ object|verbose_name:_('headline') }}:</span> {{ object.headline }}</div>
+    </div>
+    {% include './entry_info_buttons.html' %}
+</div>

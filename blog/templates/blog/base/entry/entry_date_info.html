@@ -1,0 +1,10 @@
+{% load blog_extras %}
+<div class="dropdown px-1">
+    <a href="#" class="dropdown-toggle entry-info-created" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{ object|verbose_name:_('mod_date') }}: {{ object.mod_date }}
+    </a>
+    <div class="dropdown-menu p-1 text-muted no-collapsable" aria-labelledby="dropdownMenuButton">
+        <span class="dropdown-item entry-info-modified">{{ object|verbose_name:_('create_date') }}: {{ object.create_date }}</span>
+        <span class="dropdown-item entry-info-published">{{ object|verbose_name:_('pub_date') }}: {{ object.pub_date }}</span>
+    </div>
+</div>

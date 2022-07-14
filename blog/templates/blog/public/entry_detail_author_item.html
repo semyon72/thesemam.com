@@ -1,0 +1,4 @@
+{% load blog_extras %}
+{% get_querystring as querystring %}
+<a href="{{ view.urls.index_by_author }}{{ querystring }}" class="entry-coauthors">{{ object.fields.name.value|default:'-----' }}</a>
+<a href="{{ view.urls.index_contact }}?author={{ object.fields.id.value|escape }}" class="contact-to" title="@Email {{ object.fields.name.value }}"><i class="bi bi-envelope"></i></a>

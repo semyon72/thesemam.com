@@ -1,0 +1,8 @@
+{% load i18n %}
+{% translate "You have massage from" %} {{ form.cleaned_data.name }}
+
+{{ form.name.label }}:  {{ form.cleaned_data.name }}
+{{ form.email.label }}:  {{ form.cleaned_data.email }}
+{{ form.headline.label }}:  {{ form.cleaned_data.headline }}
+{{ form.message.label }}:
+    {{ form.cleaned_data.message }}

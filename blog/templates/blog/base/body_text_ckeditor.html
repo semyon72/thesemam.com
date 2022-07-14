@@ -1,0 +1,10 @@
+{% load static %}<script src="{% static 'ckeditor/ckeditor.js' %}"></script>
+<script type="application/javascript">
+    (function($){
+        $(document).ready(function(){
+            $('form textarea#id_body_text').each(function(){
+                CKEDITOR.replace(this);
+            })
+        })
+    })(jQuery)
+</script>

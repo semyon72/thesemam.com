@@ -1,0 +1,5 @@
+{% extends 'blog/base.html' %}
+
+{% block body_content %}
+    {% include './entry_detail_info.html' with action_buttons='blog/base/entry/entry_detail_info_buttons.html' %}
+{% endblock %}

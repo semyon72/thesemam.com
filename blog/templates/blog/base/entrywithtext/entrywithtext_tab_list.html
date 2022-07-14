@@ -1,0 +1,41 @@
+{% load blog_extras i18n %}
+{% with object_list_length=object_list|length %}
+<div class="entrytext-tab-list">
+    {% if object_list_length > 0 %}
+    {% get_attr view.kwargs view.pk_text_url_kwarg as text_id %}
+    {% if text_id %}{% is_contains object_list text_id 'pk' as text_exists %}{% endif %}
+    <ul class="nav nav-tabs" id="entry-{{ object_list.0.entry.pk }}" data-notice="id of first entry for entrytext set" role="tablist">
+        {% for object in object_list %}
+            <li class="nav-item" role="presentation">
+                <a class="nav-link{% if text_exists and text_id == object.pk %} active{% elif not text_exists and forloop.first %} active{% endif %}" id="entrytext-{{ object.pk }}-tab" data-toggle="tab" href="#entrytext-{{ object.pk }}-content" role="tab" aria-controls="entrytext-{{ object.pk }}-content" aria-selected="{% if text_exists and text_id == object.pk %}true{% elif not text_exists and forloop.first %}true{% else %}false{% endif %}">#{{ object.pk }}</a>
+            </li>
+        {% endfor %}
+        <li class="nav-item">
+            <a class="nav-link" href="{{ view.urls.create }}">{% translate "Create" %}</a>
+        </li>
+    </ul>
+    <div class="tab-content mb-2" id="entry-{{ object_list.0.entry.pk }}-texts">
+        {% for object in object_list %}
+            <div class="tab-pane fade{% if text_exists and text_id == object.pk %} show active{% elif not text_exists and forloop.first %} show active{% endif %}" id="entrytext-{{ object.pk }}-content" role="tabpanel" aria-labelledby="entrytext-{{ object.pk }}-tab">
+                <div class="entrytext-item-body-text">
+                {{ object.body_text_truncated|default:object.body_text|safe }}
+                </div>
+                <div class="action-buttons">
+                    {% block action_buttons %}
+                    {% button 'back_to_list' url=object.urls.list %}
+                    {% button 'edit' url=object.urls.update %}
+                    {% button 'delete' url=object.urls.delete %}
+                    {% endblock action_buttons %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="d-flex justify-content-start">
+    {% include '../paginator.html' with base_url=view.paginator_base_url %}
+    </div>
+    {% else %}
+        <div class="create-button-block">{% button 'create' url=view.urls.create %}</div>
+        <h4>{% translate "No data" %}</h4>
+    {% endif %}
+</div>
+{% endwith %}

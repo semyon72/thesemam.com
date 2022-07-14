@@ -1,0 +1,7 @@
+{% extends 'blog/base.html' %}
+{% load blog_extras %}
+
+{% block body_content %}
+{% include '../entry/entry_detail_info.html' with object=object.entry %}
+{% include './entrytext_detail_info.html' with action_buttons='blog/base/entrytext/entrytext_detail_info_buttons.html' %}
+{% endblock %}

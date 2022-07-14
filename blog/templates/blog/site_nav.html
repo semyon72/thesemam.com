@@ -1,0 +1,30 @@
+{% load i18n %}
+<nav>
+{% spaceless %}
+{% with current_view_name=view.request.resolver_match.view_name %}
+    {% if request.user.is_authenticated %}
+    <div class="list-group mb-3">
+{#  <a href="#" class="list-group-item list-group-item-action active" aria-current="true">#}
+{#    The current link item#}
+{#  </a>#}
+        <a class="list-group-item list-group-item-action{% if current_view_name == 'blog:staff:author_list' %} active{% endif %}" href="{% url 'blog:staff:author_list' %}">{% translate "Authors" %}</a>
+        <a class="list-group-item list-group-item-action{% if current_view_name == 'blog:staff:blog_list' %} active{% endif %}" href="{% url 'blog:staff:blog_list' %}">{% translate "Blogs" %}</a>
+        <a class="list-group-item list-group-item-action{% if current_view_name == 'blog:staff:entry_list' %} active{% endif %}" href="{% url 'blog:staff:entry_list' %}">{% translate "Entries" %}</a>
+        <a class="list-group-item list-group-item-action{% if current_view_name == 'blog:staff:entrywithtext_list' %} active{% endif %}" href="{% url 'blog:staff:entrywithtext_list' %}">{% translate "Entries along with texts" %}</a>
+        <a class="list-group-item list-group-item-action{% if current_view_name == 'blog:staff:entrytext_list' %} active{% endif %}" href="{% url 'blog:staff:entrytext_list' %}">{% translate "Texts of entries" %}</a>
+    </div>
+    {% endif %}
+    <div class="list-group mb-3">
+        {% if not request.user.is_authenticated %}
+        <a class="list-group-item list-group-item-action{% if current_view_name == 'blog:auth:password_reset' %} active{% endif %}" href="{% url 'blog:auth:password_reset' %}">{% translate "Reset password" %}</a>
+        <a class="list-group-item list-group-item-action{% if current_view_name == 'blog:auth:user_registration' %} active{% endif %}" href="{% url 'blog:auth:user_registration' %}">{% translate "Registration" %}</a>
+        <a class="list-group-item list-group-item-action{% if current_view_name == 'blog:auth:login' %} active{% endif %}" href="{% url 'blog:auth:login' %}">{% translate "Log in" %}</a>
+        {% else %}
+        <a class="list-group-item list-group-item-action{% if current_view_name == 'blog:staff:profile_update' %} active{% endif %}" href="{% url 'blog:staff:profile_update' %}">{% translate "Profile" %}</a>
+        <a class="list-group-item list-group-item-action{% if current_view_name == 'blog:auth:password_change' %} active{% endif %}" href="{% url 'blog:auth:password_change' %}">{% translate "Change password" %}</a>
+        <a class="list-group-item list-group-item-action{% if current_view_name == 'blog:auth:logout' %} active{% endif %}" href="{% url 'blog:auth:logout' %}">{% translate "Log out" %}</a>
+        {% endif %}
+    </div>
+{% endwith %}
+{% endspaceless %}
+</nav>

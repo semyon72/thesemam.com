@@ -1,0 +1,15 @@
+{% load i18n %}
+<section class="{{ author_aside_class|default:'author_aside' }}">
+    {% for content_item in content_list %}
+    {% if forloop.first %}
+    <div class="list-group mb-1">
+    {% endif %}
+    {{ content_item }}
+    {% if forloop.last %}
+    </div>
+    {% endif %}
+    {% empty %}
+        {% translate "Author aside content is empty" %}
+    {% endfor %}
+    {% include '../base/paginator.html'  %}
+</section>

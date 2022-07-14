@@ -1,0 +1,21 @@
+{% load blog_extras i18n%}
+<div class="card entry-item p-2 my-2{% if object.inactive %} text-muted border border-warning bg-light{% endif %}">
+    <div class="card-header">
+        {% if object.inactive %}
+        <div class="alert-warning text-center mb-2">{% translate "Entry is not active" %}</div>
+        {% endif %}
+        {% include './entry_info_noheadline.html' %}
+    </div>
+    <div class="card-body">
+        <div class="card-title"><h5>{{ object|verbose_name:_('headline') }}:</h5></div>
+        <div class="card-text entry-info-headline"><h6>{{ object.headline }}</h6></div>
+        {% if object.entrytexts %}
+        <div class="card-text entry-info-entrytexts">{{ object.entrytexts }}</div>
+        {% endif %}
+    </div>
+    {% if action_buttons %}
+    <div class="card-footer">
+        {% include action_buttons %}
+    </div>
+    {% endif %}
+</div>

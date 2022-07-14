@@ -1,0 +1,15 @@
+{% load blog_extras i18n %}
+<div class="d-flex justify-content-end mb-2">
+    <div class="collapsed-filter">
+        <button class="btn {% if form.has_changed %}btn-danger{% else %}btn-primary{% endif %}" type="button" data-toggle="collapse" data-target="#collapsed-filter-form" aria-expanded="false" aria-controls="collapsed-filter-form">
+            <i class="bi bi-funnel"></i> {% translate "Hide/Show filter" %}{% if form.has_changed %} ({% translate "filter is active"%}){% endif %}
+        </button>
+    </div>
+</div>
+<div class="collapse" id="collapsed-filter-form">
+<form action="{{ view.urls.list|default:'./' }}" method="post">
+{% csrf_token %}
+    {{ form.as_bootstrap4 }}
+{% button 'filter' %}
+</form>
+</div>

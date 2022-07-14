@@ -1,0 +1,8 @@
+{% load blog_extras %}
+<div class="row action-buttons">
+    <div class="col entry-item-action d-flex flex-nowrap justify-content-end">
+        {% button 'edit' url=view.urls.update %}
+        {% button 'delete' url=view.urls.delete %}
+        {% button 'back_to_list' url=view.urls.list %}
+    </div>
+</div>

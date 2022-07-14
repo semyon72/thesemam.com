@@ -1,0 +1,59 @@
+{% extends '../public_base.html'  %}
+{% load i18n static %}
+
+{% block title %}{{ view.title }}{% endblock %}
+
+{% block links_aside %}
+<section class="links_aside">
+<a href="{% url 'blog:public:index_main' %}" class="list-group-item list-group-item-action list-group-item-primary active" role="button">
+{% translate "All entries" %}
+</a>
+</section>
+{% endblock %}
+
+{% block blog_aside_full %}
+<a href="#collapse_blog_aside_full" class="list-group-item list-group-item-action list-group-item-primary active" role="button" data-toggle="collapse" aria-expanded="true" aria-controls="collapse_blog_aside_full">
+{% translate "Blogs with recently added entries" %}
+</a>
+<div class="collapse show" id="collapse_blog_aside_full">
+    {{ blog_aside_full }}
+</div>
+{% endblock %}
+
+{% block author_aside_full %}
+<a href="#collapse_author_aside_full" class="list-group-item list-group-item-action list-group-item-primary active" role="button" data-toggle="collapse" aria-expanded="true" aria-controls="collapse_author_aside_full">
+{% translate "Authors with recently added entries" %}
+</a>
+<div class="collapse show" id="collapse_author_aside_full">
+    {{ author_aside_full }}
+</div>
+{% endblock %}
+
+{% block body_content %}
+{% include './index_content_info.html' %}
+{{ body_content }}
+{% endblock body_content %}
+
+{% block stylesheet %}{{ block.super }}
+    <link rel="stylesheet" href="{% static 'ckeditor/plugins/codesnippet/lib/highlight/styles/googlecode.css' %}">
+{% endblock stylesheet %}
+
+{% block javascript %}{{ block.super }}
+    <script type="application/javascript" src="{% static 'ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js' %}"></script>
+    <script type="application/javascript">
+        (function ($){
+            let highlighter_selector = 'article section.card-body div.body-text pre code'
+            $(document).ready(function(){
+                $(highlighter_selector).each(
+                    function(idx){
+                        hljs.highlightBlock(this)
+                    }
+                )
+                $('[data-toggle="tooltip"]').tooltip()
+            })
+        })(jQuery)
+    </script>
+{% endblock javascript %}
+
+
+

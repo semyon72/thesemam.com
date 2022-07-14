@@ -1,0 +1,115 @@
+html {
+    font-size: 0.84rem;
+}
+
+form {
+    margin-bottom: .8rem;
+}
+
+article {
+    /*border: #cdcaca solid thin;*/
+    margin: .66rem;
+    margin-left: 0px;
+    padding: .66rem;
+}
+
+section.entry-text div.body-text a.entry-text-detail {
+    margin-left: 1em;
+}
+
+aside .blog_aside .list-group-item:first-child, aside .author_aside .list-group-item:first-child {
+    border-top-left-radius: unset;
+    border-top-right-radius: unset;
+}
+
+aside section.links_aside a.list-group-item.list-group-item-action,
+aside a.list-group-item.list-group-item-action[role=button][data-toggle=collapse]
+{
+    margin-top: 0.5rem; /* same as bootstrap mt-2 */
+    padding-left: 0.5rem; /* same as bootstrap pl-2 */
+    padding-rightt: 0.5rem; /* same as bootstrap pr-2 */
+}
+
+article header.card-header.entry-headline {
+    font-size: 1.03rem;
+    font-family: cursive;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+article section.card-title a.entry-coauthors {
+    margin-right: 0.25rem;
+}
+
+article section.card-title a.entry-coauthors:last-of-type {
+    margin-right: revert;
+}
+
+span.found-text {
+    border: 1px solid #4caf50;
+    border-radius: 4px;
+    background-color: #ffffe4;
+}
+
+span.truncated-text {
+    color: #e72121;
+    font-weight: bold;
+    letter-spacing: 0.2em;
+    margin-right: 3px;
+    margin-left: 3px;
+}
+
+/* refactoring of admin part */
+div.card.entry-item {
+    box-shadow: 1px 2px 7px #0e0e0e37;
+}
+
+div.card .card-body .card-title, div.card .card-body .card-text,
+.entry-item-headline,
+div.entry-item div[class*="entry-info-"] span
+{
+    text-shadow: 1px 1px 5px #0e0e0e53;
+}
+
+.entry-text-item {
+    box-shadow: 1px 2px 7px #0b0b0b63;
+    border: 1px solid #08090921;
+    padding: .75rem;
+    margin-bottom: .5rem;
+}
+
+.entry-text-item .card.entry-item {
+    box-shadow: none;
+}
+
+.entrytext-item-body-text {
+    margin: 1rem;
+}
+
+div.create-button-block {
+    width: 100%;
+}
+
+div.create-button-block a.btn /*bi bi-plus-square*/ {
+    width: 100%;
+    text-align: left;
+    margin-bottom: .25rem;
+}
+
+button.btn i.bi, a.btn i.bi {
+    margin-right: .25rem;
+}
+
+div[class*='-action'] {
+    column-gap: .5rem;
+}
+
+div.entry-item-list div.entry-item:last-child:not(.border-warning),
+div.entrytext-item-list div.entrytext-item:last-child:not(.border-warning) {
+    border-bottom: none !important;
+    padding-bottom: 0px !important;
+}
+
+div.entry-item-list, div.entrytext-item-list {
+    margin-bottom: .5rem;
+}

@@ -1,0 +1,10 @@
+{% load blog_extras %}
+<div class="entrytext-item container border-bottom pb-2 mb-2">
+    <div class="row">
+        <div class="col-12 col-lg-auto entrytext-item-num"><span class="text-muted">#</span>{% if item_order_number %}{{ item_order_number }}{% else %}{{ object.pk|default:'#' }}{% endif %}</div>
+        <div class="col-12 col-lg-auto entrytext-item-body-text">
+            {{ object.body_text_truncated|default:object.body_text|safe }}
+        </div>
+    </div>
+    {% include './entrytext_info_buttons.html' %}
+</div>

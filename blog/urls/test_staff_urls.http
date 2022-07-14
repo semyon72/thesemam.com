@@ -1,0 +1,82 @@
+#############################################
+############### entry's parts`###############
+#############################################
+
+### entry_comp.EntryCoauthorItemComp.as_view(), name='entry_comp_coauthor_item'
+GET http://localhost:8000/accounts/staff/entry/comp/coauthor/79/
+
+### entry_comp.EntryCoauthorItemListComp.as_view(), name='entry_comp_coauthor_list'
+GET http://localhost:8000/accounts/staff/entry/comp/coauthor/
+
+### entry_comp.EntryItemComp.as_view(), name='entry_comp_item'
+GET http://localhost:8000/accounts/staff/entry/comp/100619/
+
+### entry_comp.EntryItemListComp.as_view(), name='entry_comp_list'
+GET http://localhost:8000/accounts/staff/entry/comp/
+
+### entry_comp.EntryFilterListComp.as_view(), name='entry_comp_filter_list'
+GET http://localhost:8000/accounts/staff/entry/comp/filter/
+
+### entry_comp.EntryWithTextItemComp.as_view(), name='entry_comp_with_text_item'
+GET http://localhost:8000/accounts/staff/entry/comp/100619/text/
+
+### entry_text_comp.EntryWithTextItemListComp.as_view(), name='entry_comp_with_text_list'
+GET http://localhost:8000/accounts/staff/entry/comp/text/
+
+### entry.EntryByAuthorView.as_view(), name='entry_by_author_list'
+GET http://localhost:8000/accounts/staff/entry/filter/author/79/
+
+### entry.EntryByBlogView.as_view(), name='entry_by_blog_list'
+GET http://localhost:8000/accounts/staff/entry/filter/blog/77/
+
+### entry.EntryView.as_view(), name='entry_list'
+GET http://localhost:8000/accounts/staff/entry/
+
+### entry_entrytext.EntryWithEntryTextView.as_view(), name='entry_with_text'
+GET http://localhost:8000/accounts/staff/entry/100619/text/
+
+################# next part requires a referer
+### entry.EntryCreateView.as_view(), name='entry_create'
+GET http://localhost:8000/accounts/staff/entry/create/
+### entry.EntryDetailView.as_view(), name='entry_detail'
+GET http://localhost:8000/accounts/staff/entry/100619/
+### entry.EntryUpdateView.as_view(), name='entry_update'
+GET http://localhost:8000/accounts/staff/entry/100602/update/
+### entry.EntryDeleteView.as_view(), name='entry_delete'
+GET http://localhost:8000/accounts/staff/entry/100602/delete/
+
+
+#############################################
+############### entrytext's parts`###########
+#############################################
+
+### entrytext_comp.EntryTextItemComp.as_view(), name='entrytext_comp_item'
+GET http://localhost:8000/accounts/staff/entrytext/comp/162000/
+
+### entrytext_comp.EntryTextItemListComp.as_view(), name='entrytext_comp_list'
+GET http://localhost:8000/accounts/staff/entrytext/comp/
+
+### entrytext_comp.EntryTextFilterListComp.as_view(), name='entrytext_comp_filter_list'
+GET http://localhost:8000/accounts/staff/entrytext/comp/filter/
+
+### entrytext_comp.EntryTextTabListComp.as_view(), name='entrytext_comp_tab_list'
+GET http://localhost:8000/accounts/staff/entrytext/comp/tab/
+
+
+### entrytext.EntryTextView.as_view(), name='entrytext_list'
+GET http://localhost:8000/accounts/staff/entrytext/
+
+### entrytext.EntryTextCreateView.as_view(), name='entrytext_create'
+GET http://localhost:8000/accounts/staff/entrytext/create/
+
+### entrytext.EntryTextDetailView.as_view(), name='entrytext_detail'
+GET http://localhost:8000/accounts/staff/entrytext/162000/
+
+### entrytext.EntryTextUpdateView.as_view(), name='entrytext_update'
+GET http://localhost:8000/accounts/staff/entrytext/162000/update/
+
+### entrytext.EntryTextDeleteView.as_view(), name='entrytext_delete'
+GET http://localhost:8000/accounts/staff/entrytext/162000/delete/
+
+
+

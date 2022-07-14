@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+{% load blog_extras %}
+
+{% block body_content %}
+<caption>{{ caption|default:_('Edit profile') }}</caption>
+{% include '../message.html' %}
+<form method="post">
+{% csrf_token %}
+{{ form.as_bootstrap4 }}
+{% button 'update' %}
+</form>
+{% endblock body_content %}

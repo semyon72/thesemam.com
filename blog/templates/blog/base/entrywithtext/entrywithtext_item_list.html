@@ -1,0 +1,8 @@
+{% load i18n %}<div class="entrytext-item-list">
+    {% for content in content_list %}
+        {{ content }}
+    {% empty %}
+        <h4>{% translate "No data" %}</h4>
+    {% endfor %}
+    {% include '../paginator.html' %}
+</div>

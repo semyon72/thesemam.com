@@ -1,0 +1,9 @@
+{% load i18n %}
+{% if content_list is not None %}
+{% for entry_content in content_list %}
+    {{ entry_content }}
+{% endfor %}
+{% include '../base/paginator.html' %}
+{% else %}
+    <h2>{% translate "No data" %}</h2>
+{% endif %}

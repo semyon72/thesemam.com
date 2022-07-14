@@ -1,0 +1,17 @@
+{% load blog_extras i18n %}
+<div class="card">
+    <div class="card-header">{% translate "Author's information" %}</div>
+    <div class="card-body">
+        <h5 class="card-title">{{ object.name }}</h5>
+        <p class="card-text"><span class="text-muted">{% translate "Authentication username" %}:</span> {{ object.user.username }}</p>
+        <p class="card-text"><span class="text-muted">{% translate "Public email" %}:</span> {{ object.email }}</p>
+    </div>
+    <ul class="list-group list-group-flush author-item-info">
+        <li class="list-group-item">
+            <span>{% translate "Total entries" %}: {{ object.entry_count|default:'0' }}</span>
+            <span class="ml-2">{% button 'filter' url=view.urls.by_author_list %}</span>
+        </li>
+        <li class="list-group-item"><span>{% translate "Blogs" %}: {{ object.blog_count|default:'0' }}</span></li>
+    </ul>
+    {% include action_buttons %}
+</div>

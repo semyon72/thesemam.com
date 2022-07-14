@@ -1,0 +1,25 @@
+{% load blog_extras %}
+<div class="row">
+    <div class="col-12 col-lg-auto entry-item-num"><span class="text-muted">#</span>{% if item_order_number %}{{ item_order_number }}{% else %}{{ object.pk|default:'#' }}{% endif %}</div>
+    <div class="col-12 col-lg-auto entry-item-author">
+        <div class="entry-info-blog"><span class="text-muted">{{ object|verbose_name:_('blog') }}: </span><a class="no-collapsable" href="{{ view.urls.by_blog_list }}">{{ object.blog.name }}</a></div>
+    </div>
+    <div class="col-12 col-lg-auto entry-item-blog">
+        <div class="entry-info-author"><span class="">{{ object|verbose_name:_('author') }}: </span><a class="no-collapsable" href="{{ view.urls.by_author_list }}">{{ object.author.name }}</a></div>
+    </div>
+    <div class="col-12 col-lg-auto entry-item-coauthors">
+        {% if coauthors_content %}
+        <div class="entry-info-coauthors dropdown">
+            <a href="#" class="dropdown-toggle entry-info-created" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="font-weight-bold">{{ object|verbose_name:_('coauthors') }}: </span>
+            </a>
+            <div class="dropdown-menu text-muted no-collapsable" aria-labelledby="dropdownMenuButton">
+                {{ coauthors_content }}
+            </div>
+        </div>
+        {% else %}
+            <div class="entry-info-coauthors d-flex flex-wrap"><span class="font-weight-bold">{{ object|verbose_name:_('coauthors') }}: </span>'-----'</div>
+        {% endif %}
+    </div>
+    <div class="col-12 col-lg-auto entry-item-dates">{% include './entry_date_info.html' %}</div>
+</div>
